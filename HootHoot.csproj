@@ -68,11 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ForgotPassword.aspx" />
-    <Content Include="FriendsPage.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="ProfilePage.aspx" />
     <Content Include="SignUpPage.aspx" />
+    <Content Include="Styling\LoginStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -82,13 +82,6 @@
     </Compile>
     <Compile Include="ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FriendsPage.aspx.cs">
-      <DependentUpon>FriendsPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FriendsPage.aspx.designer.cs">
-      <DependentUpon>FriendsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>

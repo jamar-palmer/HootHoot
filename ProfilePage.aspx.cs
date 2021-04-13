@@ -12,6 +12,7 @@ namespace OwlSpace
         protected void Page_Load(object sender, EventArgs e)
         {
             /*
+             * ROSTER PAGE
              * profile setup
              * major / other school info
              * relationship status

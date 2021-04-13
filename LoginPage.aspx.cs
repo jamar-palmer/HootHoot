@@ -18,5 +18,15 @@ namespace HootHoot
             //login button
             //creAte account button
         }
+
+        protected void Login_Button_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomePage.aspx");
+        }
+
+        protected void Register_Button_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignUpPage.aspx");
+        }
     }
 }
