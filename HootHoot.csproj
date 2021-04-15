@@ -67,15 +67,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPage.aspx" />
+    <Content Include="CourseCatalogPage.aspx" />
+    <Content Include="CourseDetailsPage.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="ProfilePage.aspx" />
     <Content Include="SignUpPage.aspx" />
+    <Content Include="Styling\HomeStyle.css" />
     <Content Include="Styling\LoginStyle.css" />
+    <Content Include="Styling\RegisterStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPage.aspx.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPage.aspx.designer.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CourseCatalogPage.aspx.cs">
+      <DependentUpon>CourseCatalogPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CourseCatalogPage.aspx.designer.cs">
+      <DependentUpon>CourseCatalogPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CourseDetailsPage.aspx.cs">
+      <DependentUpon>CourseDetailsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CourseDetailsPage.aspx.designer.cs">
+      <DependentUpon>CourseDetailsPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -121,6 +147,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
