@@ -11,8 +11,9 @@ namespace OwlSpace
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
+            /*THIS CAN WAIT!!!!
              * email textbox
+             * Ask user security question and show password
              *search or cancel
              *login options in navbar or go back
              */

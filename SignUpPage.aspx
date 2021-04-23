@@ -18,6 +18,7 @@
         <h1 class="entry-title"><span>Sign Up</span> </h1>
         <hr>
    
+      
         <div class="form-group">
           <label class="control-label col-sm-3">Email Address<span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
@@ -71,6 +72,25 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="control-label col-sm-3">Home Address <span class="text-danger">*</span></label>
+          <div class="col-md-5 col-sm-8">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input type="text" class="form-control" name="haddress" id="haddress" placeholder="Enter Home Address" value="">
+            </div>  
+          </div>
+        </div>
+
+              <div class="form-group">
+          <label class="control-label col-sm-3">Billing Address <span class="text-danger">*</span></label>
+          <div class="col-md-5 col-sm-8">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input type="text" class="form-control" name="baddress" id="baddress" placeholder="Enter Billing Address" value="">
+            </div>  
+          </div>
+        </div>
+        <div class="form-group">
           <label class="control-label col-sm-3">Major <span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
             <input type="text" class="form-control" name="major" id="major" placeholder="Enter your Major here" value="">
@@ -87,6 +107,37 @@
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
               <input type="file" name="file_nm" id="file_nm" class="form-control upload" placeholder="" aria-describedby="file_upload">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Security Question 1 </label>
+             <br />
+            <label class="control-label col-sm-3">What city were you born in? </label>
+          <div class="col-md-5 col-sm-8">
+              
+            <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
+              <input type="file" name="question1" id="question1" class="form-control upload" placeholder="" aria-describedby="file_upload">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Security Question 2 </label>
+            <br />
+            <label class="control-label col-sm-3">What is your mother's maiden name? </label>
+          <div class="col-md-5 col-sm-8">
+            <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
+              <input type="file" name="question2" id="question2" class="form-control upload" placeholder="" aria-describedby="file_upload">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Security Question 3 </label>
+             <br />
+            <label class="control-label col-sm-3">What is your favorite food? </label>
+          <div class="col-md-5 col-sm-8">
+            <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
+              <input type="file" name="question3" id="question3" class="form-control upload" placeholder="" aria-describedby="file_upload">
             </div>
           </div>
         </div>
