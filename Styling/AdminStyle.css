@@ -1,0 +1,13 @@
+﻿body {
+    margin-top: 20px;
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;
+}
+
+#addCourse {
+    padding-left: 15%;
+    padding-bottom: 15%;
+    padding-right: 15%;
+    padding-top: 1%;
+}

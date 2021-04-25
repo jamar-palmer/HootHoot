@@ -15,6 +15,15 @@ namespace OwlSpace
     {
 
         /// <summary>
+        /// bootstrap_css control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink bootstrap_css;
+
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -24,57 +33,66 @@ namespace OwlSpace
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblProgram control.
+        /// lblTitleProgram control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProgram;
+        protected global::System.Web.UI.WebControls.Label lblTitleProgram;
 
         /// <summary>
-        /// lblCourseTitle control.
+        /// lblSemester control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCourseTitle;
+        protected global::System.Web.UI.WebControls.Label lblSemester;
 
         /// <summary>
-        /// lblHours control.
+        /// lblCreds control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHours;
+        protected global::System.Web.UI.WebControls.Label lblCreds;
 
         /// <summary>
-        /// lblDesc control.
+        /// lblDescript control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDesc;
+        protected global::System.Web.UI.WebControls.Label lblDescript;
 
         /// <summary>
-        /// lblRepeat control.
+        /// lblRepeatability control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepeat;
+        protected global::System.Web.UI.WebControls.Label lblRepeatability;
 
         /// <summary>
-        /// lblPreReq control.
+        /// btnCatalogReturn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPreReq;
+        protected global::System.Web.UI.WebControls.Button btnCatalogReturn;
+
+        /// <summary>
+        /// btnAddRoster control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddRoster;
     }
 }

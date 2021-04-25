@@ -18,6 +18,18 @@
         <h1 class="entry-title"><span>Sign Up</span> </h1>
         <hr>
    
+        <div class="form-group">
+          <label class="control-label col-sm-3">User Type <span class="text-danger">*</span></label>
+          <div class="col-md-8 col-sm-9">
+            <label>
+            <input name="student"  type="radio" value="Student" checked>
+            Student </label>
+               
+            <label>
+            <input name="student" type="radio" value="Administrator" >
+            Administrator </label>
+          </div>
+        </div>
       
         <div class="form-group">
           <label class="control-label col-sm-3">Email Address<span class="text-danger">*</span></label>
@@ -59,18 +71,7 @@
             <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter your Last Name here" value="">
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label col-sm-3">User Type <span class="text-danger">*</span></label>
-          <div class="col-md-8 col-sm-9">
-            <label>
-            <input name="student" type="radio" value="Student" checked>
-            Student </label>
-               
-            <label>
-            <input name="admin" type="radio" value="Administrator" >
-            Administrator </label>
-          </div>
-        </div>
+        
         <div class="form-group">
           <label class="control-label col-sm-3">Home Address <span class="text-danger">*</span></label>
           <div class="col-md-5 col-sm-8">
@@ -99,51 +100,67 @@
         <div class="form-group">
           <label class="control-label col-sm-3">Total Credits <span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
-            <input type="text" class="form-control" name="credits" id="credits" placeholder="Enter your total number of credits here" value="">
+           <input type="text" class="form-control" name="credit" id="credit" placeholder="Enter your Credits here" value="">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">Profile Photo </label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
-              <input type="file" name="file_nm" id="file_nm" class="form-control upload" placeholder="" aria-describedby="file_upload">
+              <asp:Image ID="imgAvatar" runat="server" ImageUrl="~/Images/avatar1.jpg" Width="48" Height="48"/>
+            <br />
+            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:ListItem>avatar1</asp:ListItem>
+                <asp:ListItem>avatar2</asp:ListItem>
+                <asp:ListItem>avatar3</asp:ListItem>
+                <asp:ListItem>avatar4</asp:ListItem>
+                <asp:ListItem>avatar5</asp:ListItem>
+                <asp:ListItem>avatar6</asp:ListItem>
+                
+                <asp:ListItem>avatar7</asp:ListItem>
+                <asp:ListItem>avatar8</asp:ListItem>
+                <asp:ListItem>avatar9</asp:ListItem>
+                <asp:ListItem>avatar10</asp:ListItem>
+                
+            </asp:DropDownList>
             </div>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">Security Question 1 </label>
              <br />
-            <label class="control-label col-sm-3">What city were you born in? </label>
+            <label class="control-label col-sm-9">What city were you born in? </label>
           <div class="col-md-5 col-sm-8">
               
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
-              <input type="file" name="question1" id="question1" class="form-control upload" placeholder="" aria-describedby="file_upload">
+              <input type="text" name="question1" id="question1" class="form-control " placeholder="">
             </div>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">Security Question 2 </label>
             <br />
-            <label class="control-label col-sm-3">What is your mother's maiden name? </label>
+            <label class="control-label col-sm-9">What is your mother's maiden name? </label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
-              <input type="file" name="question2" id="question2" class="form-control upload" placeholder="" aria-describedby="file_upload">
+              <input type="text" name="question2" id="question2" class="form-control " placeholder="" >
             </div>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-3">Security Question 3 </label>
              <br />
-            <label class="control-label col-sm-3">What is your favorite food? </label>
+            <label class="control-label col-sm-9">What is your favorite food? </label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
-              <input type="file" name="question3" id="question3" class="form-control upload" placeholder="" aria-describedby="file_upload">
+              <input type="text" name="question3" id="question3" class="form-control " placeholder="" >
             </div>
           </div>
         </div>
         <div class="form-group">
           <div class="col-xs-offset-3 col-xs-10">
             <asp:Button ID="btnSignUp" runat="server" Text="Sing Up" BackColor="#990033" ForeColor="White" OnClick="btnSignUp_Click" />
+              <asp:Button ID="btnReturn" runat="server" Text="Return" BackColor="#990033" ForeColor="White" OnClick="btnReturn_Click" />
           </div>
         </div>
    

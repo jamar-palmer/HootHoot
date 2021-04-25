@@ -68,16 +68,40 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPage.aspx" />
+    <Content Include="CatalogControl.ascx" />
     <Content Include="CourseCatalogPage.aspx" />
     <Content Include="CourseDetailsPage.aspx" />
+    <Content Include="FeedbackControl.ascx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="HomePage.aspx" />
+    <Content Include="Images\avatar1.jpg" />
+    <Content Include="Images\avatar10.jpg" />
+    <Content Include="Images\avatar2.jpg" />
+    <Content Include="Images\avatar3.jpg" />
+    <Content Include="Images\avatar4.jpg" />
+    <Content Include="Images\avatar5.jpg" />
+    <Content Include="Images\avatar6.jpg" />
+    <Content Include="Images\avatar7.jpg" />
+    <Content Include="Images\avatar8.png" />
+    <Content Include="Images\avatar9.jpg" />
     <Content Include="LoginPage.aspx" />
     <Content Include="ProfilePage.aspx" />
     <Content Include="SignUpPage.aspx" />
+    <Content Include="Styling\AdminStyle.css" />
+    <Content Include="Styling\CatalogStyle.css" />
+    <Content Include="Styling\ForgotStyle.css" />
     <Content Include="Styling\HomeStyle.css" />
     <Content Include="Styling\LoginStyle.css" />
     <Content Include="Styling\RegisterStyle.css" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\UserService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\UserService\Users.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +111,13 @@
     </Compile>
     <Compile Include="AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogControl.ascx.cs">
+      <DependentUpon>CatalogControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CatalogControl.ascx.designer.cs">
+      <DependentUpon>CatalogControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="CourseCatalogPage.aspx.cs">
       <DependentUpon>CourseCatalogPage.aspx</DependentUpon>
@@ -101,6 +132,13 @@
     </Compile>
     <Compile Include="CourseDetailsPage.aspx.designer.cs">
       <DependentUpon>CourseDetailsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackControl.ascx.cs">
+      <DependentUpon>FeedbackControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeedbackControl.ascx.designer.cs">
+      <DependentUpon>FeedbackControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
@@ -131,6 +169,11 @@
       <DependentUpon>ProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="SignUpPage.aspx.cs">
       <DependentUpon>SignUpPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -138,9 +181,15 @@
     <Compile Include="SignUpPage.aspx.designer.cs">
       <DependentUpon>SignUpPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\UserService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Web References\UserService\Users.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -149,7 +198,29 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <ProjectReference Include="..\CourseLibrary\CourseLibrary.csproj">
+      <Project>{106fc80d-143c-49af-9f0d-85acb885afab}</Project>
+      <Name>CourseLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://localhost:44308/Users.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\UserService\</RelPath>
+      <UpdateFromURL>https://localhost:44308/Users.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OwlSpace_UserService_Users</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

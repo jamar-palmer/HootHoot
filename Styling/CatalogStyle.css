@@ -1,0 +1,11 @@
+﻿table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    
+}
+#mainpage {
+    margin: auto;
+    width: 25%;
+    padding: 10px;
+}

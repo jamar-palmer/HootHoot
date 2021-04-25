@@ -57,3 +57,5 @@ C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\HootHoot.csproj
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\HootHoot.csproj.CopyComplete
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\OwlSpace.dll
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\OwlSpace.pdb
+C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\CourseLibrary.dll
+C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\CourseLibrary.pdb

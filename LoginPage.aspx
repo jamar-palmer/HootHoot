@@ -23,14 +23,17 @@
             <div class="login-form">
                   <div class="form-group">
                      <label>User Name</label>
-                     <input type="text" class="form-control" placeholder="User Name">
+                     <input type="text" class="form-control" name="loginText" placeholder="User Name">
                   </div>
                   <div class="form-group">
                      <label>Password</label>
-                     <input type="password" class="form-control" placeholder="Password">
+                     <input type="password" class="form-control" name="pwText" placeholder="Password">
                   </div>
                   <button type="submit" class="btn btn-black" runat="server" onserverclick="Login_Button_Click">Login</button>
                   <button type="submit" class="btn btn-secondary" runat="server" onserverclick="Register_Button_Click">Register</button>
+                  <br />
+                  <br />
+                <button type="submit" class="btn btn-secondary" runat="server" onserverclick="Forgot_Button_Click">Forgot Password</button>
             </div>
          </div>
       </div>
