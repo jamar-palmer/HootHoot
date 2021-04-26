@@ -34,8 +34,16 @@ namespace OwlSpace
 
         public String Title
         {
-            get { return hylTitle.Text; }
-            set { hylTitle.Text = value; }
+            get { return lnkTitle.Text; }
+            set { lnkTitle.Text = value; }
+        }
+
+        protected void lnkTitle_Click(object sender, EventArgs e)
+        {
+            Session["crn"] = lblCRN.Text;
+            Session["program"] = lblProgram.Text;
+            Session["title"] = lnkTitle.Text;
+            Response.Redirect("CourseDetailsPage.aspx");
         }
     }
 }

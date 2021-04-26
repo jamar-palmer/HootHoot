@@ -15,7 +15,8 @@
         <div class="container">
 	<div class="row">
     <div class="col-md-8">   
-        <h1 class="entry-title"><span>Sign Up</span> </h1>
+        <h1 class="entry-title"><span>Sign Up</span>
+        </h1>
         <hr>
    
         <div class="form-group">
@@ -103,13 +104,17 @@
            <input type="text" class="form-control" name="credit" id="credit" placeholder="Enter your Credits here" value="">
           </div>
         </div>
+        <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
         <div class="form-group">
           <label class="control-label col-sm-3">Profile Photo </label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
               <asp:Image ID="imgAvatar" runat="server" ImageUrl="~/Images/avatar1.jpg" Width="48" Height="48"/>
             <br />
-            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" onclick="getQuote();">
                 <asp:ListItem>avatar1</asp:ListItem>
                 <asp:ListItem>avatar2</asp:ListItem>
                 <asp:ListItem>avatar3</asp:ListItem>
@@ -126,6 +131,9 @@
             </div>
           </div>
         </div>
+            </ContentTemplate>
+            </asp:UpdatePanel>
+            </div>
         <div class="form-group">
           <label class="control-label col-sm-3">Security Question 1 </label>
              <br />

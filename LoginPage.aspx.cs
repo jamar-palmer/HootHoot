@@ -43,7 +43,7 @@ namespace HootHoot
 
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Admin ds = js.Deserialize<Admin>(data);
-                //List<Admin> ds = js.Deserialize<List<Admin>>(data);
+
                 String oo = ds.FirstName;
                 if (ds.FirstName == null)
                 {

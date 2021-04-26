@@ -40,6 +40,18 @@ namespace OwlSpace.UserService {
         
         private System.Threading.SendOrPostCallback detailsViewOperationCompleted;
         
+        private System.Threading.SendOrPostCallback addFeedbackOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getFeedbackOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getPreReqOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getSemestersOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback encryptOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback decryptOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -92,6 +104,24 @@ namespace OwlSpace.UserService {
         
         /// <remarks/>
         public event detailsViewCompletedEventHandler detailsViewCompleted;
+        
+        /// <remarks/>
+        public event addFeedbackCompletedEventHandler addFeedbackCompleted;
+        
+        /// <remarks/>
+        public event getFeedbackCompletedEventHandler getFeedbackCompleted;
+        
+        /// <remarks/>
+        public event getPreReqCompletedEventHandler getPreReqCompleted;
+        
+        /// <remarks/>
+        public event getSemestersCompletedEventHandler getSemestersCompleted;
+        
+        /// <remarks/>
+        public event encryptCompletedEventHandler encryptCompleted;
+        
+        /// <remarks/>
+        public event decryptCompletedEventHandler decryptCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/adminView", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -257,6 +287,196 @@ namespace OwlSpace.UserService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/addFeedback", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool addFeedback(string title, string program, string crn, string email, string content) {
+            object[] results = this.Invoke("addFeedback", new object[] {
+                        title,
+                        program,
+                        crn,
+                        email,
+                        content});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void addFeedbackAsync(string title, string program, string crn, string email, string content) {
+            this.addFeedbackAsync(title, program, crn, email, content, null);
+        }
+        
+        /// <remarks/>
+        public void addFeedbackAsync(string title, string program, string crn, string email, string content, object userState) {
+            if ((this.addFeedbackOperationCompleted == null)) {
+                this.addFeedbackOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddFeedbackOperationCompleted);
+            }
+            this.InvokeAsync("addFeedback", new object[] {
+                        title,
+                        program,
+                        crn,
+                        email,
+                        content}, this.addFeedbackOperationCompleted, userState);
+        }
+        
+        private void OnaddFeedbackOperationCompleted(object arg) {
+            if ((this.addFeedbackCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.addFeedbackCompleted(this, new addFeedbackCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getFeedback", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet getFeedback(string title, string program, string crn, string email) {
+            object[] results = this.Invoke("getFeedback", new object[] {
+                        title,
+                        program,
+                        crn,
+                        email});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getFeedbackAsync(string title, string program, string crn, string email) {
+            this.getFeedbackAsync(title, program, crn, email, null);
+        }
+        
+        /// <remarks/>
+        public void getFeedbackAsync(string title, string program, string crn, string email, object userState) {
+            if ((this.getFeedbackOperationCompleted == null)) {
+                this.getFeedbackOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetFeedbackOperationCompleted);
+            }
+            this.InvokeAsync("getFeedback", new object[] {
+                        title,
+                        program,
+                        crn,
+                        email}, this.getFeedbackOperationCompleted, userState);
+        }
+        
+        private void OngetFeedbackOperationCompleted(object arg) {
+            if ((this.getFeedbackCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getFeedbackCompleted(this, new getFeedbackCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getPreReq", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getPreReq(string courseId) {
+            object[] results = this.Invoke("getPreReq", new object[] {
+                        courseId});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getPreReqAsync(string courseId) {
+            this.getPreReqAsync(courseId, null);
+        }
+        
+        /// <remarks/>
+        public void getPreReqAsync(string courseId, object userState) {
+            if ((this.getPreReqOperationCompleted == null)) {
+                this.getPreReqOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetPreReqOperationCompleted);
+            }
+            this.InvokeAsync("getPreReq", new object[] {
+                        courseId}, this.getPreReqOperationCompleted, userState);
+        }
+        
+        private void OngetPreReqOperationCompleted(object arg) {
+            if ((this.getPreReqCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getPreReqCompleted(this, new getPreReqCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getSemesters", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet getSemesters() {
+            object[] results = this.Invoke("getSemesters", new object[0]);
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getSemestersAsync() {
+            this.getSemestersAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getSemestersAsync(object userState) {
+            if ((this.getSemestersOperationCompleted == null)) {
+                this.getSemestersOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetSemestersOperationCompleted);
+            }
+            this.InvokeAsync("getSemesters", new object[0], this.getSemestersOperationCompleted, userState);
+        }
+        
+        private void OngetSemestersOperationCompleted(object arg) {
+            if ((this.getSemestersCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getSemestersCompleted(this, new getSemestersCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/encrypt", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string encrypt(string key, string plainText) {
+            object[] results = this.Invoke("encrypt", new object[] {
+                        key,
+                        plainText});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void encryptAsync(string key, string plainText) {
+            this.encryptAsync(key, plainText, null);
+        }
+        
+        /// <remarks/>
+        public void encryptAsync(string key, string plainText, object userState) {
+            if ((this.encryptOperationCompleted == null)) {
+                this.encryptOperationCompleted = new System.Threading.SendOrPostCallback(this.OnencryptOperationCompleted);
+            }
+            this.InvokeAsync("encrypt", new object[] {
+                        key,
+                        plainText}, this.encryptOperationCompleted, userState);
+        }
+        
+        private void OnencryptOperationCompleted(object arg) {
+            if ((this.encryptCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.encryptCompleted(this, new encryptCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/decrypt", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string decrypt(string key, string cipherText) {
+            object[] results = this.Invoke("decrypt", new object[] {
+                        key,
+                        cipherText});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void decryptAsync(string key, string cipherText) {
+            this.decryptAsync(key, cipherText, null);
+        }
+        
+        /// <remarks/>
+        public void decryptAsync(string key, string cipherText, object userState) {
+            if ((this.decryptOperationCompleted == null)) {
+                this.decryptOperationCompleted = new System.Threading.SendOrPostCallback(this.OndecryptOperationCompleted);
+            }
+            this.InvokeAsync("decrypt", new object[] {
+                        key,
+                        cipherText}, this.decryptOperationCompleted, userState);
+        }
+        
+        private void OndecryptOperationCompleted(object arg) {
+            if ((this.decryptCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.decryptCompleted(this, new decryptCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -401,6 +621,162 @@ namespace OwlSpace.UserService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void addFeedbackCompletedEventHandler(object sender, addFeedbackCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class addFeedbackCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal addFeedbackCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void getFeedbackCompletedEventHandler(object sender, getFeedbackCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getFeedbackCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getFeedbackCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void getPreReqCompletedEventHandler(object sender, getPreReqCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getPreReqCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getPreReqCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void getSemestersCompletedEventHandler(object sender, getSemestersCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getSemestersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getSemestersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void encryptCompletedEventHandler(object sender, encryptCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class encryptCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal encryptCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void decryptCompletedEventHandler(object sender, decryptCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class decryptCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal decryptCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

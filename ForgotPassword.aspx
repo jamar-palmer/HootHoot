@@ -20,16 +20,19 @@
 		<div class="card-text">
 				<div class="form-group">
 					<label for="exampleInputEmail1">Enter your email address and we will send you a link to reset your password.</label>
-					<input type="email" class="form-control form-control-sm" placeholder="Enter your email address">
+                    <asp:TextBox ID="txtEmailEnter" runat="server" placeholder="Enter your email address"></asp:TextBox>
 				</div>
 
 			<div class="form-group">
-					<label for="exampleInputEmail1">Security Question 1</label>
-					<input type="text" class="form-control form-control-sm" placeholder="">
+					<label for="exampleInputEmail1">Security Question </label>
+                    <br />
+                    <asp:Label ID="lblSec" runat="server"></asp:Label>
+&nbsp;<br />
+&nbsp;<asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
 				</div>	
 
 
-				<button type="submit" class="btn btn-primary btn-block">Send password reset email</button>
+            <asp:Button ID="btnVerify" runat="server" Text="Submit" BackColor="#66FFFF" OnClick="btnVerify_Click" />
 
 			    <br />
                 <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" Text="Return" />

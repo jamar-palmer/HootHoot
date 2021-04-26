@@ -43,6 +43,7 @@ namespace OwlSpace
                     String program = gvCourses.Rows[i].Cells[2].Text;
                     String title = gvCourses.Rows[i].Cells[3].Text;
                     String crn = gvCourses.Rows[i].Cells[4].Text;
+                    
 
                     //delete checked course
                     Boolean result = proxy.deleteCourse(program, title, crn);
@@ -77,6 +78,7 @@ namespace OwlSpace
                 String prereq = Request["prereq"];
                 String description = Request["description"];
                 CheckBox check = chkPreReq;
+
 
                 if (!check.Checked)
                 {

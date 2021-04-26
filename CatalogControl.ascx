@@ -7,6 +7,6 @@
     <asp:Label ID="lblHours" runat="server"></asp:Label>
 </p>
 <p>
-    <asp:HyperLink ID="hylTitle" runat="server" NavigateUrl="~/CourseDetailsPage.aspx">[hylTitle]</asp:HyperLink>
+    <asp:LinkButton ID="lnkTitle" runat="server" OnClick="lnkTitle_Click"></asp:LinkButton>
 </p>
 

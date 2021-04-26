@@ -44,6 +44,9 @@ namespace OwlSpace
             Session["program"] = program.Text;
             Session["title"] = title.Text;
 
+            //encryption for secure transfer of data
+            Session["secureInfo"] = proxy.encrypt("b14ca5898a4e4133bbce2ea2315a1916", title.Text);
+
             Response.Redirect("CourseDetailsPage.aspx");
         }
     }

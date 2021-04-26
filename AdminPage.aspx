@@ -16,9 +16,8 @@
             <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item active" aria-current="page"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-              <li class="breadcrumb-item" >User Profile</li>
+              <li class="breadcrumb-item active" aria-current="page">Admin Page</li>
+
             </ol>
           </nav>
           <!-- /Breadcrumb -->

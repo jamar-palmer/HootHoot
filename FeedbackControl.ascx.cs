@@ -13,5 +13,24 @@ namespace OwlSpace
         {
 
         }
+
+        public String Name
+        {
+            get { return lblStudentName.Text; }
+            set { lblStudentName.Text = value; }
+        }
+
+        public String Date
+        {
+            get { return lblDate.Text; }
+            set { lblDate.Text = value; }
+        }
+
+        public String Content
+        {
+            get { return lblContent.Text; }
+            set { lblContent.Text = value; }
+        }
+
     }
 }
