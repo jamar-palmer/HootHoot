@@ -16,21 +16,21 @@ namespace HootHoot
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //tu email login
-            //password
-            //forgot password link
-            //login button
-            //creAte account button
+            if(Request.Cookies["passwordHoot"] != null && !IsPostBack)
+            {
+                HttpCookie cookie = Request.Cookies["passwordHoot"];
+                txtPass.Text = cookie.Value.ToString();
+            }
         }
 
         protected void Login_Button_Click(object sender, EventArgs e)
         {
             String login = Request["loginText"];
-            String pw = Request["pwText"];
+            String pw = txtPass.Text;
 
             if(validation(login, pw))
             {
-                String url = "https://localhost:44358/api/Course/Login/";
+                String url = "https://cis-iis2.temple.edu/spring2021/CIS3342_tuk90983/WebAPI/Course/Login/";
                 url = url + login + "/" + pw;
 
                 WebRequest request = WebRequest.Create(url);
@@ -52,11 +52,27 @@ namespace HootHoot
 
                 else if (ds.UserType.Equals("Student"))
                 {
+                    if (chkRemember.Checked)
+                    {
+                        writeCookie(pw);
+                    }
+                    else
+                    {
+                        removeCookie();
+                    }
                     Session["student"] = ds;
                     Response.Redirect("HomePage.aspx");
                 }
                 else
                 {
+                    if (chkRemember.Checked)
+                    {
+                        writeCookie(pw);
+                    }
+                    else
+                    {
+                        removeCookie();
+                    }
                     Session["admin"] = ds;
                     Response.Redirect("AdminPage.aspx");
                 }
@@ -65,9 +81,27 @@ namespace HootHoot
             {
                 Response.Write("<script>alert('Please Enter Both Fields.')</script>");
             }
+        }
+
+        public void writeCookie(String pw)
+        {
+            HttpCookie password = new HttpCookie("passwordHoot");
+            password.Value = pw;
+            Response.Cookies.Add(password);
+
+        }
+
+        public void removeCookie()
+        {
+
+            HttpCookie password = HttpContext.Current.Request.Cookies["passwordHoot"];
+            if (password != null)
+            {
+                password.Expires = DateTime.Now.AddDays(-10);
+                password.Value = null;
+                HttpContext.Current.Response.SetCookie(password);
+            }
             
-
-
         }
 
         public bool validation(String email, String pw)
@@ -90,6 +124,11 @@ namespace HootHoot
         protected void Forgot_Button_Click(object sender, EventArgs e)
         {
             Response.Redirect("ForgotPassword.aspx");
+        }
+
+        protected void txtPass_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 

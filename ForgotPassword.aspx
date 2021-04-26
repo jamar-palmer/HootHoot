@@ -20,7 +20,7 @@
 		<div class="card-text">
 				<div class="form-group">
 					<label for="exampleInputEmail1">Enter your email address and we will send you a link to reset your password.</label>
-                    <asp:TextBox ID="txtEmailEnter" runat="server" placeholder="Enter your email address"></asp:TextBox>
+                    <asp:TextBox ID="txtEmailEnter" runat="server" placeholder="Enter email"></asp:TextBox>
 				</div>
 
 			<div class="form-group">
@@ -34,8 +34,7 @@
 
             <asp:Button ID="btnVerify" runat="server" Text="Submit" BackColor="#66FFFF" OnClick="btnVerify_Click" />
 
-			    <br />
-                <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" Text="Return" />
+                <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" Text="Return" BackColor="#66FFFF" />
 
 			<br />
 

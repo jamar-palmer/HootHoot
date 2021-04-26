@@ -32,7 +32,7 @@
               <asp:Label ID="lblTitleProgram" runat="server"></asp:Label>
             </h1>
           <p class="lead mb-5 text-white-50">
-              <asp:Label ID="lblSemester" runat="server"></asp:Label>
+              <asp:Label ID="lblSemester" runat="server" ForeColor="White"></asp:Label>
             </p>
         </div>
       </div>
@@ -74,13 +74,14 @@
           <asp:Button ID="btnFeedback" runat="server" Text="Add Feedback" BackColor="#33CCFF" OnClick="btnFeedback_Click" />
           <asp:TextBox ID="txtFeedback" runat="server" Height="76px" Visible="False" Width="224px"></asp:TextBox>
           <asp:Button ID="btnSubmit" runat="server" BackColor="#33CCFF" OnClick="btnSubmit_Click" Text="Submit" Visible="False" />
-          <br />
+      
           </div>
+           <br />
     <div class="row">
       <div class="col-md-4 mb-5">
         <h2>Feedback</h2>
       </div>
-      <div class="col-md-4 mb-5">
+      <div class="col-md-4 mb-5" id="feedbackDiv" runat="server">
         
       </div>
       <div class="col-md-4 mb-5">

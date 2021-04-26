@@ -92,6 +92,7 @@
     <Content Include="Styling\ForgotStyle.css" />
     <Content Include="Styling\HomeStyle.css" />
     <Content Include="Styling\LoginStyle.css" />
+    <Content Include="Styling\ProfileStyle.css" />
     <Content Include="Styling\RegisterStyle.css" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +103,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\UserService\Users.disco" />
+    <Content Include="Styling\TableStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

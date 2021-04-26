@@ -12,6 +12,7 @@
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap_css">
     <link rel="stylesheet" href="~/Styling/LoginStyle.css" />
+    <link rel="stylesheet" href="~/Styling/TableStyle.css" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
@@ -27,7 +28,7 @@
           </nav>
           <!-- /Breadcrumb -->
             <div id="mainpage">
-            Course Descriptions
+            <h1>Course Descriptions</h1>
              <br />
              <br />
             <table>

@@ -1,3 +1,5 @@
+C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\HootHoot.csprojAssemblyReference.cache
+C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\HootHoot.csproj.CoreCompileInputs.cache
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\OwlSpace.dll.config
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\OwlSpace.dll
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\OwlSpace.pdb
@@ -50,12 +52,10 @@ C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\roslyn\vbc.exe.config
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\roslyn\vbc.rsp
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\roslyn\VBCSCompiler.exe
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\CourseLibrary.dll
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\CourseLibrary.pdb
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\HootHoot.csprojAssemblyReference.cache
-C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\HootHoot.csproj.CoreCompileInputs.cache
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\HootHoot.csproj.CopyComplete
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\OwlSpace.dll
 C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\obj\Debug\OwlSpace.pdb
-C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\CourseLibrary.dll
-C:\Users\Jamar\source\repos\CIS_3342_Projects\HootHoot\bin\CourseLibrary.pdb

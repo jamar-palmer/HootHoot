@@ -45,5 +45,7 @@ namespace OwlSpace
             Session["title"] = lnkTitle.Text;
             Response.Redirect("CourseDetailsPage.aspx");
         }
+
+      
     }
 }

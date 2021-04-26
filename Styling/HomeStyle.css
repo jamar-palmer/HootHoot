@@ -57,4 +57,26 @@
     box-shadow: none !important;
 }
 
+table {
+    font-family: sans-serif;
+    th, td
 
+{
+    padding: .25em .5em;
+    text-align: left;
+    &:nth-child(2)
+
+{
+    text-align: right;
+
+
+.tpadding {
+    padding: 20px;
+    font-size: 120%;
+    text-align:center;
+}
+
+.tcolor {
+    background-color: #990033;
+    color: white;
+}

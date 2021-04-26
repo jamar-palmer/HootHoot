@@ -1,0 +1,15 @@
+﻿table {
+    font-family: sans-serif;
+    border: 1px solid #CCC;
+    border-collapse: collapse;
+}
+
+tr, td {
+    padding: 1em 1em;
+    text-align: left;
+    border: none;
+}
+
+body {
+    color: #990033;
+}

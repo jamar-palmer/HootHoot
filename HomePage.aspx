@@ -23,14 +23,15 @@
             </ol>
           </nav>
           <!-- /Breadcrumb -->
+        <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
         <div class="row">
     <div class="col-md-6 mb-6 d-flex flex-column ">
-              <asp:Button ID="Button1" runat="server" Text="View Courses" OnClick="Button1_Click" />
+              <asp:Button ID="Button1" runat="server" Text="View Courses" OnClick="Button1_Click" BackColor="#990033" ForeColor="White" />
         </div>
         <div class="col-md-6 mb-6 d-flex flex-column ">
-              <asp:Button ID="Button2" runat="server" Text="Plan Registration" OnClick="Button2_Click" />
+              <asp:Button ID="Button2" runat="server" Text="Plan Registration" OnClick="Button2_Click" BackColor="#990033" ForeColor="White" />
               <br />
-              <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
+              
               <br />
             </div>
                   

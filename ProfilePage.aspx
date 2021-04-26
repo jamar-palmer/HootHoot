@@ -7,6 +7,7 @@
    <title>Hoot Hoot Course Planner</title> 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap_css">
     <link rel="stylesheet" href="~/Styling/LoginStyle.css" />
+    <link rel="stylesheet" href="~/Styling/ProfileStyle.css" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
@@ -22,11 +23,22 @@
           </nav>
           <!-- /Breadcrumb -->
            
-            <div>
+            <div id="content">
+                <h1>Course Registration</h1>
 
-                <asp:DropDownList ID="ddlSemester" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSemester_SelectedIndexChanged"></asp:DropDownList>
+                <div>
+                <h3>Select Semester: </h3><asp:DropDownList ID="ddlSemester" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSemester_SelectedIndexChanged"></asp:DropDownList>
+                    </div>
+                <br />
                 <!-- dynamic data -->
-                
+                <div runat="server" id="coursesDiv">
+
+
+                </div>
+
+                <div>
+                    <asp:Button ID="btnRemove" runat="server" Text="Clear Roster" BackColor="#990033" ForeColor="White" OnClick="btnRemove_Click" />
+                </div>
                
             </div>
                    

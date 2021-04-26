@@ -74,7 +74,7 @@
         </div>
         
         <div class="form-group">
-          <label class="control-label col-sm-3">Home Address <span class="text-danger">*</span></label>
+          <label class="control-label col-sm-3">Home Address <span class="text-danger"></span></label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -84,7 +84,7 @@
         </div>
 
               <div class="form-group">
-          <label class="control-label col-sm-3">Billing Address <span class="text-danger">*</span></label>
+          <label class="control-label col-sm-3">Billing Address </label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -112,7 +112,7 @@
           <label class="control-label col-sm-3">Profile Photo </label>
           <div class="col-md-5 col-sm-8">
             <div class="input-group"> <span class="input-group-addon" id="file_upload"><i class="glyphicon glyphicon-upload"></i></span>
-              <asp:Image ID="imgAvatar" runat="server" ImageUrl="~/Images/avatar1.jpg" Width="48" Height="48"/>
+              <asp:Image ID="imgAvatar" runat="server" ImageUrl="~/Images/avatar1.jpg" Width="48" Height="48"/><span class="text-danger">*</span>
             <br />
             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" onclick="getQuote();">
                 <asp:ListItem>avatar1</asp:ListItem>
@@ -135,7 +135,7 @@
             </asp:UpdatePanel>
             </div>
         <div class="form-group">
-          <label class="control-label col-sm-3">Security Question 1 </label>
+          <label class="control-label col-sm-3">Security Question 1 <span class="text-danger">*</span></label>
              <br />
             <label class="control-label col-sm-9">What city were you born in? </label>
           <div class="col-md-5 col-sm-8">
@@ -146,7 +146,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-3">Security Question 2 </label>
+          <label class="control-label col-sm-3">Security Question 2 <span class="text-danger">*</span></label>
             <br />
             <label class="control-label col-sm-9">What is your mother's maiden name? </label>
           <div class="col-md-5 col-sm-8">
@@ -156,7 +156,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-3">Security Question 3 </label>
+          <label class="control-label col-sm-3">Security Question 3 <span class="text-danger">*</span></label>
              <br />
             <label class="control-label col-sm-9">What is your favorite food? </label>
           <div class="col-md-5 col-sm-8">

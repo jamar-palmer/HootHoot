@@ -26,8 +26,11 @@
                      <input type="text" class="form-control" name="loginText" placeholder="User Name">
                   </div>
                   <div class="form-group">
-                     <label>Password</label>
-                     <input type="password" class="form-control" name="pwText" placeholder="Password">
+                     <label>Password</label> 
+                      <asp:TextBox ID="txtPass" runat="server" class="form-control" name="pwText" placeholder="Password" OnTextChanged="txtPass_TextChanged"></asp:TextBox>
+                     
+                      <label>Remember Me?</label> 
+                      <asp:CheckBox ID="chkRemember" runat="server" />
                   </div>
                   <button type="submit" class="btn btn-black" runat="server" onserverclick="Login_Button_Click">Login</button>
                   <button type="submit" class="btn btn-secondary" runat="server" onserverclick="Register_Button_Click">Register</button>

@@ -16,6 +16,11 @@ namespace HootHoot
         Admin student;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["student"] == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
+
             student = (Admin) Session["student"];
             loadData();
             getRoster();
@@ -74,11 +79,11 @@ namespace HootHoot
         public void buildDynamic(List<Course> courseList)
         {
             String strHTML = "";
-            strHTML = strHTML + "<table> <tr> <td>Program </td> <td>CRN </td> <td>Course</td> </tr>";
+            strHTML = strHTML + "<table style = \" font-family: sans-serif; border: 1px solid black;\" > <tr   style = \" background-color: #990033; color: white;\"> <td  style = \" padding: 20px\">Program </td> <td  style = \" padding: 20px\">CRN </td  style = \" padding: 20px\"> <td>Course</td> </tr>";
 
             for(int i = 0; i < courseList.Count; i++)
             {
-                strHTML = strHTML + "<tr> <td> " + courseList[i].Program + "</td> <td> " + courseList[i].Crn + "</td> <td> " + courseList[i].Title + "</td> </tr>";
+                strHTML = strHTML + "<tr style = \" background-color: white; \"> <td style = \" padding: 20px\"> " + courseList[i].Program + "</td> <td  style = \" padding: 20px\"> " + courseList[i].Crn + "</td> <td  style = \" padding: 20px\"> " + courseList[i].Title + "</td> </tr>";
             }
             strHTML += "</table";
             currentSemester.InnerHtml = strHTML;

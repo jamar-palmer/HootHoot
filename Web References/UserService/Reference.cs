@@ -34,6 +34,8 @@ namespace OwlSpace.UserService {
         
         private System.Threading.SendOrPostCallback addCourseOperationCompleted;
         
+        private System.Threading.SendOrPostCallback modCourseOperationCompleted;
+        
         private System.Threading.SendOrPostCallback deleteCourseOperationCompleted;
         
         private System.Threading.SendOrPostCallback catalogViewOperationCompleted;
@@ -42,11 +44,17 @@ namespace OwlSpace.UserService {
         
         private System.Threading.SendOrPostCallback addFeedbackOperationCompleted;
         
+        private System.Threading.SendOrPostCallback fetchPrereqOperationCompleted;
+        
         private System.Threading.SendOrPostCallback getFeedbackOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getNameOperationCompleted;
         
         private System.Threading.SendOrPostCallback getPreReqOperationCompleted;
         
         private System.Threading.SendOrPostCallback getSemestersOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback removeRosterOperationCompleted;
         
         private System.Threading.SendOrPostCallback encryptOperationCompleted;
         
@@ -97,6 +105,9 @@ namespace OwlSpace.UserService {
         public event addCourseCompletedEventHandler addCourseCompleted;
         
         /// <remarks/>
+        public event modCourseCompletedEventHandler modCourseCompleted;
+        
+        /// <remarks/>
         public event deleteCourseCompletedEventHandler deleteCourseCompleted;
         
         /// <remarks/>
@@ -109,13 +120,22 @@ namespace OwlSpace.UserService {
         public event addFeedbackCompletedEventHandler addFeedbackCompleted;
         
         /// <remarks/>
+        public event fetchPrereqCompletedEventHandler fetchPrereqCompleted;
+        
+        /// <remarks/>
         public event getFeedbackCompletedEventHandler getFeedbackCompleted;
+        
+        /// <remarks/>
+        public event getNameCompletedEventHandler getNameCompleted;
         
         /// <remarks/>
         public event getPreReqCompletedEventHandler getPreReqCompleted;
         
         /// <remarks/>
         public event getSemestersCompletedEventHandler getSemestersCompleted;
+        
+        /// <remarks/>
+        public event removeRosterCompletedEventHandler removeRosterCompleted;
         
         /// <remarks/>
         public event encryptCompletedEventHandler encryptCompleted;
@@ -190,6 +210,49 @@ namespace OwlSpace.UserService {
             if ((this.addCourseCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.addCourseCompleted(this, new addCourseCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/modCourse", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool modCourse(string title, string description, string hours, string program, string crn, string prereq, string repeat, string semester) {
+            object[] results = this.Invoke("modCourse", new object[] {
+                        title,
+                        description,
+                        hours,
+                        program,
+                        crn,
+                        prereq,
+                        repeat,
+                        semester});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void modCourseAsync(string title, string description, string hours, string program, string crn, string prereq, string repeat, string semester) {
+            this.modCourseAsync(title, description, hours, program, crn, prereq, repeat, semester, null);
+        }
+        
+        /// <remarks/>
+        public void modCourseAsync(string title, string description, string hours, string program, string crn, string prereq, string repeat, string semester, object userState) {
+            if ((this.modCourseOperationCompleted == null)) {
+                this.modCourseOperationCompleted = new System.Threading.SendOrPostCallback(this.OnmodCourseOperationCompleted);
+            }
+            this.InvokeAsync("modCourse", new object[] {
+                        title,
+                        description,
+                        hours,
+                        program,
+                        crn,
+                        prereq,
+                        repeat,
+                        semester}, this.modCourseOperationCompleted, userState);
+        }
+        
+        private void OnmodCourseOperationCompleted(object arg) {
+            if ((this.modCourseCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.modCourseCompleted(this, new modCourseCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -324,37 +387,93 @@ namespace OwlSpace.UserService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/fetchPrereq", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool fetchPrereq(string prereq) {
+            object[] results = this.Invoke("fetchPrereq", new object[] {
+                        prereq});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fetchPrereqAsync(string prereq) {
+            this.fetchPrereqAsync(prereq, null);
+        }
+        
+        /// <remarks/>
+        public void fetchPrereqAsync(string prereq, object userState) {
+            if ((this.fetchPrereqOperationCompleted == null)) {
+                this.fetchPrereqOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfetchPrereqOperationCompleted);
+            }
+            this.InvokeAsync("fetchPrereq", new object[] {
+                        prereq}, this.fetchPrereqOperationCompleted, userState);
+        }
+        
+        private void OnfetchPrereqOperationCompleted(object arg) {
+            if ((this.fetchPrereqCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fetchPrereqCompleted(this, new fetchPrereqCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getFeedback", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet getFeedback(string title, string program, string crn, string email) {
+        public System.Data.DataSet getFeedback(string title, string program, string crn) {
             object[] results = this.Invoke("getFeedback", new object[] {
                         title,
                         program,
-                        crn,
-                        email});
+                        crn});
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void getFeedbackAsync(string title, string program, string crn, string email) {
-            this.getFeedbackAsync(title, program, crn, email, null);
+        public void getFeedbackAsync(string title, string program, string crn) {
+            this.getFeedbackAsync(title, program, crn, null);
         }
         
         /// <remarks/>
-        public void getFeedbackAsync(string title, string program, string crn, string email, object userState) {
+        public void getFeedbackAsync(string title, string program, string crn, object userState) {
             if ((this.getFeedbackOperationCompleted == null)) {
                 this.getFeedbackOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetFeedbackOperationCompleted);
             }
             this.InvokeAsync("getFeedback", new object[] {
                         title,
                         program,
-                        crn,
-                        email}, this.getFeedbackOperationCompleted, userState);
+                        crn}, this.getFeedbackOperationCompleted, userState);
         }
         
         private void OngetFeedbackOperationCompleted(object arg) {
             if ((this.getFeedbackCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.getFeedbackCompleted(this, new getFeedbackCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getName", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string getName(string studentId) {
+            object[] results = this.Invoke("getName", new object[] {
+                        studentId});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getNameAsync(string studentId) {
+            this.getNameAsync(studentId, null);
+        }
+        
+        /// <remarks/>
+        public void getNameAsync(string studentId, object userState) {
+            if ((this.getNameOperationCompleted == null)) {
+                this.getNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetNameOperationCompleted);
+            }
+            this.InvokeAsync("getName", new object[] {
+                        studentId}, this.getNameOperationCompleted, userState);
+        }
+        
+        private void OngetNameOperationCompleted(object arg) {
+            if ((this.getNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getNameCompleted(this, new getNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -411,6 +530,35 @@ namespace OwlSpace.UserService {
             if ((this.getSemestersCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.getSemestersCompleted(this, new getSemestersCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/removeRoster", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool removeRoster(string email) {
+            object[] results = this.Invoke("removeRoster", new object[] {
+                        email});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void removeRosterAsync(string email) {
+            this.removeRosterAsync(email, null);
+        }
+        
+        /// <remarks/>
+        public void removeRosterAsync(string email, object userState) {
+            if ((this.removeRosterOperationCompleted == null)) {
+                this.removeRosterOperationCompleted = new System.Threading.SendOrPostCallback(this.OnremoveRosterOperationCompleted);
+            }
+            this.InvokeAsync("removeRoster", new object[] {
+                        email}, this.removeRosterOperationCompleted, userState);
+        }
+        
+        private void OnremoveRosterOperationCompleted(object arg) {
+            if ((this.removeRosterCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.removeRosterCompleted(this, new removeRosterCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -549,6 +697,32 @@ namespace OwlSpace.UserService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void modCourseCompletedEventHandler(object sender, modCourseCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class modCourseCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal modCourseCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void deleteCourseCompletedEventHandler(object sender, deleteCourseCompletedEventArgs e);
     
     /// <remarks/>
@@ -653,6 +827,32 @@ namespace OwlSpace.UserService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void fetchPrereqCompletedEventHandler(object sender, fetchPrereqCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fetchPrereqCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fetchPrereqCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void getFeedbackCompletedEventHandler(object sender, getFeedbackCompletedEventArgs e);
     
     /// <remarks/>
@@ -673,6 +873,32 @@ namespace OwlSpace.UserService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void getNameCompletedEventHandler(object sender, getNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }
@@ -725,6 +951,32 @@ namespace OwlSpace.UserService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void removeRosterCompletedEventHandler(object sender, removeRosterCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class removeRosterCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal removeRosterCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

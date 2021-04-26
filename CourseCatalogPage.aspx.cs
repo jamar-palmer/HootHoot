@@ -16,6 +16,11 @@ namespace OwlSpace
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["student"] == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
+
             proxy = new UserService.Users();
             if (!IsPostBack)
             {

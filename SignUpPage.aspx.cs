@@ -24,34 +24,36 @@ namespace HootHoot
             bool check = validation();
             if (check)
             {
-                //if user or administrator
-                String student = Request["student"];
-
-                String url = "https://localhost:44358/api/Course/Register/";
-
-                String email = Request["emailid"];
-                String password = Request["password"];
-                String first = Request["mem_name"];
-                String last = Request["last_name"];
-                String question1 = Request["question1"];
-                String question2 = Request["question2"];
-                String question3 = Request["question3"];
-                if (student.Equals("Student"))
+                if (inputValidation())
                 {
-                    String major = Request["major"];
-                    String credits = Request["credit"];
-                    String image = DropDownList1.SelectedValue;
+                    //if user or administrator
+                    String student = Request["student"];
 
-                    url = url + first + "/" + last + "/" + password + "/" + email + "/" + image + "/" + major + "/" + credits + "/" + question1 + "/" + question2 + "/" + question3 + "/" + student;                   
+                    String url = "https://localhost:44358/api/Course/Register/";
 
-                }
-                else
-                {
-                    url = url + first + "/" + last + "/" + password + "/" + email + "/" + question1 + "/" + question2 + "/" + question3 + "/" + "Admin";
+                    String email = Request["emailid"];
+                    String password = Request["password"];
+                    String first = Request["mem_name"];
+                    String last = Request["last_name"];
+                    String question1 = Request["question1"];
+                    String question2 = Request["question2"];
+                    String question3 = Request["question3"];
+                    if (student.Equals("Student"))
+                    {
+                        String major = Request["major"];
+                        String credits = Request["credit"];
+                        String image = DropDownList1.SelectedValue;
 
-                }
+                        url = url + first + "/" + last + "/" + password + "/" + email + "/" + image + "/" + major + "/" + credits + "/" + question1 + "/" + question2 + "/" + question3 + "/" + student;
 
-                //use POST
+                    }
+                    else
+                    {
+                        url = url + first + "/" + last + "/" + password + "/" + email + "/" + question1 + "/" + question2 + "/" + question3 + "/" + "Admin";
+
+                    }
+
+                    // POST
                     WebRequest request = WebRequest.Create(url);
                     WebResponse response = request.GetResponse();
                     Stream theDataStream = response.GetResponseStream();
@@ -67,9 +69,37 @@ namespace HootHoot
                     else
                     {
                         Response.Write("<script>alert('Registration Failed. Please Try Again.')</script>");
-                    }                
+                    }
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Please fill out all entries.')</script>");
             }
         }        
+
+        public bool inputValidation()
+        {
+            String email = Request["emailid"];
+            String password = Request["password"];
+            String confirm = Request["cpassword"];
+
+            if (!password.Equals(confirm))
+            {
+                Response.Write("<script>alert('Please ensure both passwords match.')</script>");
+                return false;
+            }
+            else if (!email.EndsWith("temple.edu"))
+            {
+                Response.Write("<script>alert('You must have a Temple email to use this application.')</script>");
+                return false;
+
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         public bool validation()
         {
@@ -98,6 +128,7 @@ namespace HootHoot
             }
             else
             {
+               
                 return true;
             }
 
@@ -106,7 +137,7 @@ namespace HootHoot
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            //AJAX C
+            //AJAX 
             string picture = DropDownList1.SelectedValue;
 
             switch (picture)

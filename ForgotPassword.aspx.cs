@@ -18,13 +18,6 @@ namespace OwlSpace
              question = random.Next(1, 4);
             generateQuestion(question);
 
-            /*
-             * email textbox
-             * Ask user security question and show password
-             *search or cancel
-             *login options in navbar or go back
-             *
-             */
         }
 
         private void generateQuestion(int question)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using CourseLibrary;
 using System.Web.UI.WebControls;
 using System.Data;
 
@@ -11,16 +12,26 @@ namespace OwlSpace
     public partial class AdminPage : System.Web.UI.Page
     {
         UserService.Users proxy;
+        Admin admin;
+        DataSet ds;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             proxy = new UserService.Users();
-            getCourses();
+            if (!IsPostBack)
+            {
+                getCourses();
+
+            }
+            admin = (Admin)Session["admin"];
+            lblName.Text = admin.FirstName + " " + admin.LastName;
+
         }
 
         public void getCourses()
         {
-            DataSet ds = proxy.adminView();
+             ds = proxy.adminView();
             gvCourses.DataSource = ds;
             gvCourses.DataBind();
         }
@@ -29,35 +40,37 @@ namespace OwlSpace
         {
             //AJAX
             Panel1.Visible = true;
+            hide();
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            CheckBox check;
             int count = gvCourses.Rows.Count;    
             for(int i = 0; i < count; i++)
             {
-                CheckBox check;
                 check = (CheckBox) gvCourses.Rows[i].FindControl("chkDelete");
+                String asdasd = gvCourses.Rows[i].Cells[3].Text;
                 if (check.Checked)
                 {
-                    String program = gvCourses.Rows[i].Cells[2].Text;
+                    String program = gvCourses.Rows[i].Cells[1].Text;
                     String title = gvCourses.Rows[i].Cells[3].Text;
-                    String crn = gvCourses.Rows[i].Cells[4].Text;
+                    String crn = gvCourses.Rows[i].Cells[2].Text;
                     
 
                     //delete checked course
-                    Boolean result = proxy.deleteCourse(program, title, crn);
+                    Boolean result = proxy.deleteCourse(title, program, crn);
                     if (result)
                     {
                         Response.Write("<script>alert('Course Delete Success.')</script>");
+                        getCourses();
                     }
                     else
                     {
                         Response.Write("<script>alert('Course Delete Failed.')</script>");
                     }
-                
-
             }
+
             }
         }
 
@@ -73,36 +86,60 @@ namespace OwlSpace
                 String hours = Request["hours"];
                 String title = Request["title"];
                 String crn = Request["crn"];
-                String repeat = Request["repeat"];
+                String repeat = ddlRepeat.Text;
                 String semester = Request["semester"];
                 String prereq = Request["prereq"];
                 String description = Request["description"];
                 CheckBox check = chkPreReq;
 
+                bool prereqCheck = true;
 
                 if (!check.Checked)
                 {
                     prereq = "0";
                 }
-
-                Boolean result = proxy.addCourse(title, description, hours, program, crn, prereq, repeat, semester);
-
-                if (result)
+                else
                 {
-                    Response.Write("<script>alert('Course Add Success.')</script>");
-                    Panel1.Visible = false;
+                    int number;
+                    bool attempt = int.TryParse(prereq, out number);
+                    if (attempt)
+                    {
+                        prereqCheck = proxy.fetchPrereq(prereq);
+                    }
+                    else
+                    {
+                        prereqCheck = false;
+                    }
+                   
+                }
 
-                    getCourses();
+                if (prereqCheck)
+                {
+                    Boolean result = proxy.addCourse(title, description, hours, program, crn, prereq, repeat, semester);
+
+                    if (result)
+                    {
+                        Response.Write("<script>alert('Course Add Success.')</script>");
+                        Panel1.Visible = false;
+
+                        getCourses();
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Course Add Failed.')</script>");
+                    }
+
                 }
                 else
                 {
-                    Response.Write("<script>alert('Course Add Failed.')</script>");
+                    Response.Write("<script>alert('Course Pre-req not found.')</script>");
                 }
             }
             else
             {
                 Response.Write("<script>alert('Enter all fields')</script>");
-            }  
+            }
+            show();
         }
 
         public bool validation()
@@ -112,7 +149,7 @@ namespace OwlSpace
             String hours = Request["hours"];
             String title = Request["title"];
             String crn = Request["crn"];
-            String repeat = Request["repeat"];
+            String repeat = ddlRepeat.Text;
             String semester = Request["semester"];
             String prereq = Request["prereq"];
             String description = Request["description"];
@@ -129,6 +166,104 @@ namespace OwlSpace
             {
                 return true;
             }
+
+        }
+
+        protected void btnMod_Click(object sender, EventArgs e)
+        {
+            pnlMod.Visible = true;
+            hide();
+        }
+
+        protected void btnCancelAdd_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = false;
+            show();
+        }
+
+        protected void btnCancelMod_Click(object sender, EventArgs e)
+        {
+            pnlMod.Visible = false;
+            show();
+        }
+        protected void btnModify_Click(object sender, EventArgs e)
+        {
+            bool checking = validation();
+
+            if (checking)
+            {
+                String program = Request["program"];
+                String hours = Request["hours"];
+                String title = Request["title"];
+                String crn = Request["crn"];
+                String repeat = ddlRepeat.Text;
+                String semester = Request["semester"];
+                String prereq = Request["prereq"];
+                String description = Request["description"];
+                CheckBox check = chkPreReq;
+
+
+                if (!check.Checked)
+                {
+                    prereq = "0";
+                }
+
+                Boolean result = proxy.modCourse(title, description, hours, program, crn, prereq, repeat, semester);
+
+                if (result)
+                {
+                    Response.Write("<script>alert('Course Modification Success.')</script>");
+                    Panel1.Visible = false;
+
+                    getCourses();
+                }
+                else
+                {
+                    Response.Write("<script>alert('Course Modification Failed.')</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Enter all fields')</script>");
+            }
+
+            show();
+        }
+
+        public void hide()
+        {
+            btnMod.Visible = false;
+            btnAdd.Visible = false;
+            btnDelete.Visible = false;
+        }
+
+        public void show()
+        {
+            btnMod.Visible = true;
+            btnAdd.Visible = true;
+            btnDelete.Visible = true;
+        }
+
+        protected void gvCourses_PageIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void gvCourses_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvCourses.PageIndex = e.NewPageIndex;
+            gvCourses.DataSource = ds;
+            gvCourses.DataBind();
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["admin"] = null;
+            Response.Redirect("LoginPage.aspx");
+        }
+
+        protected void gvCourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

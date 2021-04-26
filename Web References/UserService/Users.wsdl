@@ -40,6 +40,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="modCourse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hours" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="program" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="crn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prereq" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="repeat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="semester" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modCourseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modCourseResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="deleteCourse">
         <s:complexType>
           <s:sequence>
@@ -114,13 +135,26 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="fetchPrereq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prereq" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="fetchPrereqResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fetchPrereqResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="getFeedback">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="program" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="crn" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -135,6 +169,20 @@
                 </s:sequence>
               </s:complexType>
             </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="studentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNameResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -166,6 +214,20 @@
                 </s:sequence>
               </s:complexType>
             </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeRoster">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeRosterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="removeRosterResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -213,6 +275,12 @@
   <wsdl:message name="addCourseSoapOut">
     <wsdl:part name="parameters" element="tns:addCourseResponse" />
   </wsdl:message>
+  <wsdl:message name="modCourseSoapIn">
+    <wsdl:part name="parameters" element="tns:modCourse" />
+  </wsdl:message>
+  <wsdl:message name="modCourseSoapOut">
+    <wsdl:part name="parameters" element="tns:modCourseResponse" />
+  </wsdl:message>
   <wsdl:message name="deleteCourseSoapIn">
     <wsdl:part name="parameters" element="tns:deleteCourse" />
   </wsdl:message>
@@ -237,11 +305,23 @@
   <wsdl:message name="addFeedbackSoapOut">
     <wsdl:part name="parameters" element="tns:addFeedbackResponse" />
   </wsdl:message>
+  <wsdl:message name="fetchPrereqSoapIn">
+    <wsdl:part name="parameters" element="tns:fetchPrereq" />
+  </wsdl:message>
+  <wsdl:message name="fetchPrereqSoapOut">
+    <wsdl:part name="parameters" element="tns:fetchPrereqResponse" />
+  </wsdl:message>
   <wsdl:message name="getFeedbackSoapIn">
     <wsdl:part name="parameters" element="tns:getFeedback" />
   </wsdl:message>
   <wsdl:message name="getFeedbackSoapOut">
     <wsdl:part name="parameters" element="tns:getFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNameSoapIn">
+    <wsdl:part name="parameters" element="tns:getName" />
+  </wsdl:message>
+  <wsdl:message name="getNameSoapOut">
+    <wsdl:part name="parameters" element="tns:getNameResponse" />
   </wsdl:message>
   <wsdl:message name="getPreReqSoapIn">
     <wsdl:part name="parameters" element="tns:getPreReq" />
@@ -254,6 +334,12 @@
   </wsdl:message>
   <wsdl:message name="getSemestersSoapOut">
     <wsdl:part name="parameters" element="tns:getSemestersResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeRosterSoapIn">
+    <wsdl:part name="parameters" element="tns:removeRoster" />
+  </wsdl:message>
+  <wsdl:message name="removeRosterSoapOut">
+    <wsdl:part name="parameters" element="tns:removeRosterResponse" />
   </wsdl:message>
   <wsdl:message name="encryptSoapIn">
     <wsdl:part name="parameters" element="tns:encrypt" />
@@ -276,6 +362,10 @@
       <wsdl:input message="tns:addCourseSoapIn" />
       <wsdl:output message="tns:addCourseSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="modCourse">
+      <wsdl:input message="tns:modCourseSoapIn" />
+      <wsdl:output message="tns:modCourseSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="deleteCourse">
       <wsdl:input message="tns:deleteCourseSoapIn" />
       <wsdl:output message="tns:deleteCourseSoapOut" />
@@ -292,9 +382,17 @@
       <wsdl:input message="tns:addFeedbackSoapIn" />
       <wsdl:output message="tns:addFeedbackSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="fetchPrereq">
+      <wsdl:input message="tns:fetchPrereqSoapIn" />
+      <wsdl:output message="tns:fetchPrereqSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="getFeedback">
       <wsdl:input message="tns:getFeedbackSoapIn" />
       <wsdl:output message="tns:getFeedbackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getName">
+      <wsdl:input message="tns:getNameSoapIn" />
+      <wsdl:output message="tns:getNameSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getPreReq">
       <wsdl:input message="tns:getPreReqSoapIn" />
@@ -303,6 +401,10 @@
     <wsdl:operation name="getSemesters">
       <wsdl:input message="tns:getSemestersSoapIn" />
       <wsdl:output message="tns:getSemestersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeRoster">
+      <wsdl:input message="tns:removeRosterSoapIn" />
+      <wsdl:output message="tns:removeRosterSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="encrypt">
       <wsdl:input message="tns:encryptSoapIn" />
@@ -326,6 +428,15 @@
     </wsdl:operation>
     <wsdl:operation name="addCourse">
       <soap:operation soapAction="http://tempuri.org/addCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modCourse">
+      <soap:operation soapAction="http://tempuri.org/modCourse" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -369,8 +480,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="fetchPrereq">
+      <soap:operation soapAction="http://tempuri.org/fetchPrereq" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getFeedback">
       <soap:operation soapAction="http://tempuri.org/getFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getName">
+      <soap:operation soapAction="http://tempuri.org/getName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -389,6 +518,15 @@
     </wsdl:operation>
     <wsdl:operation name="getSemesters">
       <soap:operation soapAction="http://tempuri.org/getSemesters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeRoster">
+      <soap:operation soapAction="http://tempuri.org/removeRoster" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -435,6 +573,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="modCourse">
+      <soap12:operation soapAction="http://tempuri.org/modCourse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="deleteCourse">
       <soap12:operation soapAction="http://tempuri.org/deleteCourse" style="document" />
       <wsdl:input>
@@ -471,8 +618,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="fetchPrereq">
+      <soap12:operation soapAction="http://tempuri.org/fetchPrereq" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getFeedback">
       <soap12:operation soapAction="http://tempuri.org/getFeedback" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getName">
+      <soap12:operation soapAction="http://tempuri.org/getName" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -491,6 +656,15 @@
     </wsdl:operation>
     <wsdl:operation name="getSemesters">
       <soap12:operation soapAction="http://tempuri.org/getSemesters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeRoster">
+      <soap12:operation soapAction="http://tempuri.org/removeRoster" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

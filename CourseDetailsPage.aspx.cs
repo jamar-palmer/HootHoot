@@ -21,6 +21,12 @@ namespace OwlSpace
         Admin student;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["student"] == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
+
             proxy = new UserService.Users();
             if(Session["program"]!= null)
             {
@@ -43,8 +49,7 @@ namespace OwlSpace
                 lblTitleProgram.Text = titling;
                 loadPreReq(ds.Tables[0].Rows[0]["PreReq"].ToString());
 
-                DataSet ds2 = proxy.getFeedback(title, program, crn, student.Email);
-
+                DataSet ds2 = proxy.getFeedback(title, program, crn); 
                 loadFeedback(ds2);
             }
         }
@@ -70,6 +75,7 @@ namespace OwlSpace
             if (data.Equals("true"))
             {
                 Response.Write("<script>alert('Course Add Success.')</script>");
+                Response.Redirect("CourseCatalogPage.aspx");
             }
             else
             {
@@ -95,22 +101,25 @@ namespace OwlSpace
             }
             else
             {
-                Response.Write("<script>alert('Course NOOOOOOOOOOOOOOOOOO Success.')</script>");
+                Response.Write("<script>alert('Unsuccessful.')</script>");
             }
             txtFeedback.Visible = false;
             btnSubmit.Visible = false;
+            Response.Redirect("CourseCatalogPage.aspx");
         }
 
         public void loadFeedback(DataSet dataset)
         {
             for(int i = 0; i < dataset.Tables[0].Rows.Count; i++)
             {
+                String name = proxy.getName(dataset.Tables[0].Rows[i]["StudentId"].ToString());
+
                 FeedbackControl feedbackControl = (FeedbackControl)LoadControl("FeedbackControl.ascx");
-                feedbackControl.Name = dataset.Tables[0].Rows[i]["FirstName"].ToString();
+                feedbackControl.Name = name;
                 feedbackControl.Date = dataset.Tables[0].Rows[i]["DatePosted"].ToString();
                 feedbackControl.Content = dataset.Tables[0].Rows[i]["Content"].ToString();
 
-                Form.Controls.Add(feedbackControl);
+                feedbackDiv.Controls.Add(feedbackControl);
             }
         }
 

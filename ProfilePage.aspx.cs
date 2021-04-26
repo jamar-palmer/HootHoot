@@ -29,8 +29,13 @@ namespace OwlSpace
                 ddlSemester.DataTextField = "SemesterOffering";
                 ddlSemester.DataValueField = "SemesterOffering";
                 ddlSemester.DataBind();
+
+                Session["ddl"] = ddlSemester.SelectedValue;
+                loadRegistration();
+               
             }
-            loadRegistration();
+            
+
         }
 
         public void loadRegistration()
@@ -58,29 +63,47 @@ namespace OwlSpace
             response.Close();
 
             ds = js.Deserialize<List<Course>>(data);
+            if(ds != null) { 
             buildRoster(ds);
+            }
+            else
+            {
+                Label label = new Label();
+                label.Text = "Register for classes through catalog";
+                coursesDiv.Controls.Add(label);
+            }
         }
 
         public void buildRoster(List<Course> courseList)
         {
-            for(int i = 0; i < courseList.Count; i++)
+            if (courseList.Count == 0)
             {
-                CatalogControl catalogControl = (CatalogControl)LoadControl("CatalogControl.ascx");
-                catalogControl.Program = courseList[i].Program;
-                catalogControl.CRN = courseList[i].Crn;
-                catalogControl.CreditHours = courseList[i].CreditHours;
-                catalogControl.Title = courseList[i].Title;
+                Label label = new Label();
+                label.Text = "No courses for this semster";
+                coursesDiv.Controls.Add(label);
+            }
+            else
+            { 
 
-                Form.Controls.Add(catalogControl);
+                for (int i = 0; i < courseList.Count; i++)
+                {
+                    CatalogControl catalogControl = (CatalogControl)LoadControl("CatalogControl.ascx");
+                    catalogControl.Program = courseList[i].Program;
+                    catalogControl.CRN = courseList[i].Crn;
+                    catalogControl.CreditHours = courseList[i].CreditHours;
+                    catalogControl.Title = courseList[i].Title;
+      
+                    coursesDiv.Controls.Add(catalogControl);
+                }
             }
         }
 
         protected void ddlSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String semester = ddlSemester.SelectedValue;
+            Session["ddl"] = ddlSemester.SelectedValue;
 
             String url = "https://localhost:44358/api/Course/SemesterUpdate/";
-            url += student.Email + "/" + semester;
+            url += student.Email + "/" + Session["ddl"].ToString();
 
             WebRequest request = WebRequest.Create(url);
             WebResponse response = request.GetResponse();
@@ -92,8 +115,15 @@ namespace OwlSpace
             JavaScriptSerializer js = new JavaScriptSerializer();
             ds = js.Deserialize<List<Course>>(data);
 
-            Form.Controls.Clear();
             buildRoster(ds);
+        }
+
+        protected void btnRemove_Click(object sender, EventArgs e)
+        {
+            String email = student.Email;
+            proxy.removeRoster(email);
+
+            Response.Redirect("HomePage.aspx");
         }
     }
 }
