@@ -32,16 +32,16 @@
                         <asp:Label ID="lblTitle" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
                     </td>
                     <td>
-                        <asp:Label ID="lblID" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
+                        <asp:Label ID="lblID" runat="server" Text='<%# Bind("CourseId") %>'></asp:Label>
                     </td>
                     <td>
                         <asp:Button ID="btnDetails" runat="server" Text="Button" />
                     </td>
                     <td>
-                        <asp:Label ID="lblHours" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
+                        <asp:Label ID="lblHours" runat="server" Text='<%# Bind("CreditHours") %>'></asp:Label>
                     </td>
                     <td>
-                        <asp:Label ID="lblCRN" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
+                        <asp:Label ID="lblCRN" runat="server" Text='<%# Bind("CourseNumber") %>'></asp:Label>
                     </td>
                     <td>
                         <asp:CheckBox ID="cbRegister" runat="server" />

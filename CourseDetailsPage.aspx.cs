@@ -9,9 +9,18 @@ namespace HootHoot
 {
     public partial class CourseDetailsPage : System.Web.UI.Page
     {
+        DBConnect dbcon = new DBConnect();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostback)
+            {
+                displaydata()
+            }
+        }
+        public void displayData()
+        {
+            rptDetails.DataSource =;
+            rptDetails.DataBind();
         }
     }
 }

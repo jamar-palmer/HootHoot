@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HootHootLibrary;
 
 namespace OwlSpace
 {
@@ -13,6 +14,7 @@ namespace OwlSpace
         {
             if (!IsPostBack)
             {
+                Review rv = new Review();
                 showReview(false);
             }
         }
@@ -38,7 +40,11 @@ namespace OwlSpace
             try
             {
                 int row = e.Item.ItemIndex;
-                Label course = (Label)
+                Label course = (Label)rptCourses_ItemCommand.Items[row].FindControl("lblTitle");
+                string title = course;
+                rv.course = title;
+                showReview = true;
+
             }
             catch
             {
@@ -49,6 +55,116 @@ namespace OwlSpace
         {
             try
             {
+                double total = 0;
+                //1st question
+                if (ddlReview1.SelectedItem.Text == "Strongly Agree")
+                {
+                    total = total + 5;
+                } 
+                else if (ddlReview1.SelectedItem.Text == "Agree")
+                {
+                    total = total + 4;
+                }
+                else if (ddlReview1.SelectedItem.Text == "Neutral")
+                {
+                    total = total + 3;
+                }
+                else if (ddlReview1.SelectedItem.Text == "Disagree")
+                {
+                        total = total + 2;
+                }
+                else if (ddlReview1.SelectedItem.Text == "Strongly Disagree")
+                {
+                        total = total + 1;
+                }
+                //2nd question
+                if (ddlReview2.SelectedItem.Text == "Strongly Agree")
+                {
+                    total = total + 5;
+                }
+                else if (ddlReview2.SelectedItem.Text == "Agree")
+                {
+                    total = total + 4;
+                }
+                else if (ddlReview2.SelectedItem.Text == "Neutral")
+                {
+                    total = total + 3;
+                }
+                else if (ddlReview2.SelectedItem.Text == "Disagree")
+                {
+                    total = total + 2;
+                }
+                else if (ddlReview2.SelectedItem.Text == "Strongly Disagree")
+                {
+                    total = total + 1;
+                }
+                //3rd question
+                if (ddlReview3.SelectedItem.Text == "Strongly Agree")
+                {
+                    total = total + 5;
+                }
+                else if (ddlReview3.SelectedItem.Text == "Agree")
+                {
+                    total = total + 4;
+                }
+                else if (ddlReview3.SelectedItem.Text == "Neutral")
+                {
+                    total = total + 3;
+                }
+                else if (ddlReview3.SelectedItem.Text == "Disagree")
+                {
+                    total = total + 2;
+                }
+                else if (ddlReview3.SelectedItem.Text == "Strongly Disagree")
+                {
+                    total = total + 1;
+                }
+                //4th question
+                if (ddlReview4.SelectedItem.Text == "Strongly Agree")
+                {
+                    total = total + 5;
+                }
+                else if (ddlReview4.SelectedItem.Text == "Agree")
+                {
+                    total = total + 4;
+                }
+                else if (ddlReview4.SelectedItem.Text == "Neutral")
+                {
+                    total = total + 3;
+                }
+                else if (ddlReview4.SelectedItem.Text == "Disagree")
+                {
+                    total = total + 2;
+                }
+                else if (ddlReview4.SelectedItem.Text == "Strongly Disagree")
+                {
+                    total = total + 1;
+                }
+                //5th question
+                if (ddlReview5.SelectedItem.Text == "Strongly Agree")
+                {
+                    total = total + 5;
+                }
+                else if (ddlReview5.SelectedItem.Text == "Agree")
+                {
+                    total = total + 4;
+                }
+                else if (ddlReview5.SelectedItem.Text == "Neutral")
+                {
+                    total = total + 3;
+                }
+                else if (ddlReview5.SelectedItem.Text == "Disagree")
+                {
+                    total = total + 2;
+                }
+                else if (ddlReview5.SelectedItem.Text == "Strongly Disagree")
+                {
+                    total = total + 1;
+                }
+
+                double avg = total / 5;
+                rv.rating = avg;
+                rv.rev = txtReview.Text;
 
             }
             catch
