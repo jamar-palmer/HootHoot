@@ -6,17 +6,26 @@ using System.Threading.Tasks;
 
 namespace HootHootLibrary
 {
-    class User
+    public class User
     {
-        public string username { get; set; }
-        private string password { get; set; }
-        public string usertype { get; set; }
+        private string username;
+        private string password;
+        private string usertype;
 
-        public User (string un, string pw, string ut)
+        public String Username
         {
-            username = un;
-            password = pw;
-            usertype = ut;
+            get { return username; }
+            set { username = value; }
+        }
+        public String Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
+        public String Usertype
+        {
+            get { return usertype; }
+            set { usertype = value; }
         }
     }
 }

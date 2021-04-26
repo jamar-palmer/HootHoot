@@ -14,25 +14,43 @@
                 <asp:ListItem>Spring 2022</asp:ListItem>
                 <asp:ListItem>Fall 2022</asp:ListItem>
             </asp:DropDownList>
-            <!-- temp? -->
-            <asp:GridView ID="gvCourses" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvCourses_SelectedIndexChanged">
-                <Columns>
-                    <asp:BoundField DataField="Title" HeaderText="Title" />
-                    <asp:BoundField DataField="CourseId" HeaderText="Course ID" />
-                    <asp:TemplateField HeaderText="Details">
-                        <ItemTemplate>
-                            <asp:Button ID="btnDetails" runat="server" Text="Click for Details" OnClick="btnDetails_Click" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="CreditHours" HeaderText="Hours" />
-                    <asp:BoundField DataField="CourseNumber" HeaderText="CRN" />
-                    <asp:TemplateField HeaderText="Register">
-                        <ItemTemplate>
-                            <asp:CheckBox ID="cbRegister" runat="server" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>CourseID</th>
+                    <th>Details</th>
+                    <th>Hours</th>
+                    <th>CRN</th>
+                    <th>Register</th>
+                </tr>
+
+            <asp:Repeater ID="rptCourses" runat="server" OnItemCommand="rptCourses_ItemCommand">
+                <ItemTemplate>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblTitle" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Label ID="lblID" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Button ID="btnDetails" runat="server" Text="Button" />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblHours" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Label ID="lblCRN" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
+                    </td>
+                    <td>
+                        <asp:CheckBox ID="cbRegister" runat="server" />
+                    </td>
+                </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </table>
+            
             <asp:Button ID="btnRegister" runat="server" Text="Register for Selected Courses" OnClick="btnRegister_Click" />
         </div>
     </form>

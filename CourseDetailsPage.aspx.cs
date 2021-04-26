@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace OwlSpace
+namespace HootHoot
 {
     public partial class CourseDetailsPage : System.Web.UI.Page
     {

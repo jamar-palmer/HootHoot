@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CourseDetailsPage.aspx.cs" Inherits="OwlSpace.CourseDetailsPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CourseDetailsPage.aspx.cs" Inherits="HootHoot.CourseDetailsPage" %>
 
 <!DOCTYPE html>
 
@@ -9,6 +9,15 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <table>
+                <tr>
+                    <th>Course</th>
+                    <th>CRN</th>
+                    <th>PreReq</th>
+                    <th>Description</th>
+                </tr>
+            </table>
+
         </div>
     </form>
 </body>

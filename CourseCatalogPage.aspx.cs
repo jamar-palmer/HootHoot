@@ -5,27 +5,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-using PizzaLibrary;
-using System.Data;
-using System.Collections;
-using System.Globalization;
-
 namespace HootHoot
 {
     public partial class CourseCatalogPage : System.Web.UI.Page
     {
         DBConnect dbcon = new DBConnect();
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                displayGVData()
+                displayData()
             }
 
         }
         //temp?
-        public void displayGVData()
+        public void displayData()
         {
             string term = ddlTerm.SelectedItem.Text;
             try
@@ -33,8 +28,8 @@ namespace HootHoot
                 string sql = "Select * FROM Courses WHERE SemesterOffering = " + term;
 
                 DataSet mydata = dbcon.GetDataSet(sql);
-                gvCourses.DataSource = mydata;
-                gvCourses.DataBind();
+                rptCourses.DataSource = mydata;
+                rptCourses.DataBind();
             }
             catch
             {
@@ -51,19 +46,19 @@ namespace HootHoot
         {
             try
             {
-                for (int row = 0; row < gvCourses.Rows.Count; row++)
+                for (int row = 0; row < rptCourses.Items.Count; row++)
                 {
                     CheckBox cb;
 
 
-                    cb = (CheckBox)gvCourses.Rows[row].FindControl("cbRegister");
+                    cb = (CheckBox)rptCourses.Items[row].FindControl("cbRegister");
                     if (cb.Checked)
                     {
 
                         //add course to student roster
                     }
 
-            }
+                }
             catch
             {
 
@@ -81,5 +76,6 @@ namespace HootHoot
 
             }
         }
+
     }
 }

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace OwlSpace
+namespace HootHoot
 {
     public partial class CourseDetailsPage
     {

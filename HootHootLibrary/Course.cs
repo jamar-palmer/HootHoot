@@ -6,37 +6,70 @@ using System.Threading.Tasks;
 
 namespace HootHootLibrary
 {
-    class Course
+    public class Course
     {
 
-        public string subject { get; set; }
-        public string semester { get; set; }
-        public string college { get; set; }
-        public string campus { get; set; }
-        public string instructor { get; set; }
-        public int crn { get; set; }
-        public int section { get; set; }
-        public double credithours { get; set; }
-        public DateTime meetingtime { get; set; }
-        public int capacity { get; set; }
+        private string subject;
+        private string semester;
+        private string college;
+        private string campus;
+        private string instructor;
+        private int crn;
+        private int section;
+        private double credithours;
+        private DateTime meetingtime;
+        private int capacity;
 
-        public Course (string s, string sm, string co, string ca, string ins, int cr, int se, double ch, DateTime mt, int cap)
+        public String Subject
         {
-            subject = s;
-            semester = sm;
-            college = co;
-            campus = ca;
-            instructor = ins;
-            crn = cr;
-            section = se;
-            credithours = ch;
-            meetingtime = mt;
-            capacity = cap;
-
-
+            get { return subject; }
+            set { subject = value; }
         }
-
-
+        public String Semester
+        {
+            get { return semester; }
+            set { semester = value; }
+        }
+        public String College
+        {
+            get { return college; }
+            set { college = value; }
+        }
+        public String Campus
+        {
+            get { return campus; }
+            set { campus = value; }
+        }
+        public String Instructor
+        {
+            get { return instructor; }
+            set { instructor = value; }
+        }
+        public int CRN
+        {
+            get { return crn; }
+            set { crn = value; }
+        }
+        public int Section
+        {
+            get { return section; }
+            set { section = value; }
+        }
+        public double Credithours
+        {
+            get { return credithours; }
+            set { credithours = value; }
+        }
+        public DateTime Meetingtime
+        {
+            get { return meetingtime; }
+            set { meetingtime = value; }
+        }
+        public int Capacity
+        {
+            get { return capacity; }
+            set { capacity = value; }
+        }
 
     }
 }
