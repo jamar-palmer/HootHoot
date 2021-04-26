@@ -30,7 +30,7 @@ namespace HootHoot
 
             if(validation(login, pw))
             {
-                String url = "https://cis-iis2.temple.edu/spring2021/CIS3342_tuk90983/WebAPI/Course/Login/";
+                String url = "https://localhost:44358/api/Course/Login/";
                 url = url + login + "/" + pw;
 
                 WebRequest request = WebRequest.Create(url);
